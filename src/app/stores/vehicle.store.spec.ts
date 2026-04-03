@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { VehicleStore, Vehicle } from './vehicle.store';
+import { patchState } from '@ngrx/signals';
 
 describe('VehicleStore', () => {
   let store: InstanceType<typeof VehicleStore>;
@@ -7,6 +8,18 @@ describe('VehicleStore', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     store = TestBed.inject(VehicleStore);
+
+    // Resetuj do niezależnego stanu początkowego dla każdego testu
+    patchState(store, {
+      vehicles: [
+        { vin: 'toyota123', marka: 'toyota', model: 'corrola' },
+        { vin: 'suzuki123', marka: 'suzuki', model: 'vitara' },
+        { vin: 'honda123', marka: 'honda', model: 'civic' },
+        { vin: 'skoda123', marka: 'skoda', model: 'kodiak' }
+      ],
+      currentPage: 0,
+      pageSize: 3
+    });
   });
 
   // -----------------------------------------------------------------------
