@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "signal-store-cars-app:build:production"
+              "buildTarget": "signal-store-cars-app:build:production"
             },
             "development": {
-              "browserTarget": "signal-store-cars-app:build:development"
+              "buildTarget": "signal-store-cars-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "signal-store-cars-app:build"
+            "buildTarget": "signal-store-cars-app:build"
           }
         },
         "test": {
